@@ -18,6 +18,5 @@ int main() {
     printf("Produto: %d\n", x * z);
     
     printf("Quociente: %.2f\n", (float)y / z);
-    
     return 0;
 }
