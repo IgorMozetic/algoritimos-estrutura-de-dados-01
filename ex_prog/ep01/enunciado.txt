@@ -1,0 +1,62 @@
+O TAD Matriz permite representar e operar sobre matrizes de números reais (double). A interface do TAD é definida no arquivo matriz.h:
+
+  #ifndef MATRIZ_H
+  #define MATRIZ_H
+  
+  #include <stdbool.h>
+  
+  typedef struct Matriz Matriz;
+  
+  Matriz* matriz_create(int rows, int cols);
+  void matriz_destroy(Matriz* matriz);
+  void matriz_print(Matriz* matriz);
+  double matriz_get(Matriz* matriz, int row, int col);
+  void matriz_set(Matriz* matriz, int row, int col, double value);
+  int matriz_rows(Matriz* matriz);
+  int matriz_cols(Matriz* matriz);
+  bool matriz_equals(Matriz* matriz1, Matriz* matriz2);
+  
+  // New functions
+  Matriz* matriz_add(Matriz* matriz1, Matriz* matriz2);
+  Matriz* matriz_sub(Matriz* matriz1, Matriz* matriz2);
+  Matriz* matriz_scalar_mul(Matriz* matriz1, double scalar);
+  Matriz* matriz_transpose(Matriz* matriz);
+  bool matriz_is_symmetric(Matriz* matriz);
+  
+  #endif
+
+A implementação do TAD Matriz encontra-se no arquivo matriz.c. A matriz é representada por um ponteiro para uma estrutura que contém o número de linhas e colunas e um ponteiro para um array de double que armazena os elementos da matriz. A estrutura Matriz é definida como segue:
+
+  struct Matriz {
+    int rows;
+    int cols;
+    double** data;
+  };
+
+No arquivo matriz.c já estão implementadas as funções matriz_create, matriz_destroy, matriz_print, matriz_get, matriz_set, matriz_rows, matriz_cols e matriz_equals. O seu trabalho consiste em implementar as funções restantes.
+O que fazer
+
+Implemente as funções restantes do TAD Matriz, que são as seguintes:
+
+    Matriz* matriz_add(Matriz* matriz1, Matriz* matriz2): Retorna uma nova matriz que é a soma das matrizes matriz1 e matriz2.
+
+    Matriz* matriz_sub(Matriz* matriz1, Matriz* matriz2): Retorna uma nova matriz que é a subtração das matrizes matriz1 e matriz2.
+
+    Matriz* matriz_scalar_mul(Matriz* matriz, double scalar): Retorna uma nova matriz que é o produto da matriz matriz por um escalar scalar.
+
+    Matriz* matriz_transpose(Matriz* matriz): Retorna uma nova matriz que é a transposta da matriz matriz.
+
+    bool matriz_is_symmetric(Matriz* matriz): Retorna true se a matriz matriz é simétrica e false caso contrário.
+
+Observações
+
+    As funções da API do TAD que retornam uma nova matriz devem alocar memória dinamicamente para a nova matriz.
+
+Testes automáticos
+
+Os testes automáticos irão verificar:
+
+    A corretude das funções implementadas.
+
+    A ausência de vazamentos de memória.
+
